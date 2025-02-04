@@ -1,0 +1,167 @@
+/* Define CSS Variables for modern theming */
+:root {
+    --primary-color: #1e1e1e;       /* Deep dark slate for header and footer */
+    --secondary-color: #ff6f61;     /* Vibrant coral accent */
+    --background-color: #f4f4f9;    /* Clean, off-white background */
+    --text-color: #333333;          /* Dark grey text */
+    --accent-color: #0abdc6;        /* Turquoise accent for highlights */
+    --base-font-size: 16px;         /* Base font size for rem calculations */
+  }
+  
+  /* Base Styles */
+  html {
+    font-size: var(--base-font-size);
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Header & Navigation */
+  header {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 1rem;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--accent-color);
+    margin: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  /* Section Styling */
+  section {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  section h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  section p, section ul {
+    font-size: 1rem;
+  }
+  
+  /* List Styling */
+  section ul {
+    padding-left: 1rem;
+  }
+  
+  section li {
+    margin: 0.5rem 0;
+  }
+  
+  /* Footer Styling */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-top: 0.25rem solid var(--secondary-color);
+    font-size: 1rem;
+  }
+  
+  /* Responsive Design Adjustments */
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.75rem;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+    .nav-links li {
+      text-align: center;
+      margin: 0.75rem 0;
+    }
+    .mobile-menu {
+      display: block;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+    }
+    section h2 {
+      font-size: 1.75rem;
+    }
+    section p, section ul {
+      font-size: 1.125rem;
+    }
+    footer {
+      font-size: 1.125rem;
+    }
+  }
+  
