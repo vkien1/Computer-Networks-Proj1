@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NetFlux</title>
+    <title>Kiendom</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts for modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav>
-            <div class="logo">NetFlux</div>
+            <div class="logo">Kiendom</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -25,18 +24,34 @@
             </div>
         </nav>
     </header>
-
+    <!-- Body Section -->
     <main id="home">
         <section class="hero">
-            <h1>Welcome to NetFlux</h1>
-            <p>Experience modern web design and core networking concepts like DNS, IP addressing, and secure protocols.
+            <h1>Welcome to Kiendom</h1>
+            <p>Explore the fundamentals of networking through an interactive and visually engaging experience.
             </p>
         </section>
 
         <section id="about">
             <h2>About This Project</h2>
-            <p>This project, hosted on GitHub Pages, is built with HTML, CSS, and JavaScript. It features a modern,
-                responsive design with dynamic elements to ensure a seamless experience on any device.</p>
+            <p>For my first Computer Networking project, I designed and developed a fully functional website to
+                illustrate key networking principles in action. This project required me to build a website from scratch
+                while ensuring it adhered to fundamental networking concepts.</p>
+
+            <h2>Project Tasks</h2>
+            <p>
+                <strong>Domain & Hosting:</strong> Selected a hosting service and configured a domain (either free or
+                temporary).<br>
+                <strong>Website Setup:</strong> Built a responsive website using HTML, CSS, and optionally JavaScript
+                or a framework of choice.<br>
+                <strong>Networking Aspects:</strong> Ensured the website was accessible online while demonstrating
+                knowledge of <strong>DNS, IP addressing, and protocols</strong>.<br>
+                <strong>Documentation:</strong> Provided a detailed report covering the website setup, challenges
+                faced, and how networking principles were applied.<br>
+                <strong>Bonus Enhancements:</strong> Implemented security features such as <strong>HTTPS, firewalls,
+                    and access control</strong> to enhance the site’s reliability and security.<br>
+            </p>
+
         </section>
 
         <section id="network">
@@ -49,17 +64,65 @@
             <p>Enhanced security is built-in with HTTPS and careful configuration of access controls.</p>
         </section>
 
+        <!-- Flashcard Game Section -->
+        <section id="flashcards">
+            <h2>Flashcard Game</h2>
+            <p>Test your networking knowledge with the flashcards below! Click on a card to reveal the answer.</p>
+            <button id="start-game">Start Game</button>
+            <button id="reset-game" style="display: none;">Reset Game</button>
+            <div class="flashcards-container" style="display: none;">
+                <div class="flashcard">
+                    <div class="question">What is DNS?</div>
+                    <div class="answer">The system that translates domain names into IP addresses.</div>
+                </div>
+                <div class="flashcard">
+                    <div class="question">What are IP Addresses?</div>
+                    <div class="answer">Unique numerical identifiers assigned to devices on a network.</div>
+                </div>
+                <div class="flashcard">
+                    <div class="question">What are Protocols?</div>
+                    <div class="answer">Rules that govern data exchange (HTTP/HTTPS) and ensure secure connections.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Documentation Section -->
+        <section id="documentation">
+            <h2>Project Documentation 📖</h2>
+            <p>This section provides a detailed overview of the website setup, challenges faced, and how networking
+                principles were applied.</p>
+
+            <ul>
+                <li><strong>Website Setup:</strong> Built using HTML, CSS, and JavaScript, ensuring a responsive and
+                    modern design.</li>
+                <li><strong>Domain & Hosting:</strong> Hosted on GitHub Pages, utilizing a free subdomain for public
+                    accessibility.</li>
+                <li><strong>Networking Concepts:</strong> Implemented core networking principles including
+                    <strong>DNS resolution, IP addressing, and HTTP/HTTPS protocols</strong>.
+                </li>
+                <li><strong>Security Enhancements:</strong> Leveraged GitHub Pages' built-in <strong>HTTPS</strong>
+                    support for secure communication.</li>
+                <li><strong>Challenges Faced:</strong> Adjusting website responsiveness, ensuring cross-browser
+                    compatibility, and debugging JavaScript for interactive elements.</li>
+                <li><strong>Interactive Features:</strong> Implemented a dynamic <strong>Flashcard Game</strong> to
+                    reinforce networking knowledge.</li>
+            </ul>
+        </section>
+
+
+        <!-- Contact Section -->
         <section id="contact">
             <h2>Contact / Feedback</h2>
-            <p>Questions or suggestions? Email us at <a href="mailto:info@netflux.com">info@netflux.com</a>.</p>
+            <p>Questions or suggestions? Email us at <a href="mailto:info@netflux.com">kienv@kiendom.com</a>.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 NetFlux. All rights reserved.</p>
+        <p>&copy; 2025 Kiendom. All rights reserved.</p>
     </footer>
 
-    <!-- Optional JavaScript -->
     <script src="script.js"></script>
 </body>
 
