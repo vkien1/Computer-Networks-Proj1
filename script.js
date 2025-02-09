@@ -8,6 +8,13 @@ document.getElementById("mobile-menu").addEventListener("click", function () {
     }
 });
 
+document.querySelectorAll('.dropdown-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        let content = this.nextElementSibling;
+        content.style.display = content.style.display === "none" || content.style.display === "" ? "block" : "none";
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Kiendom loaded successfully!");
 
