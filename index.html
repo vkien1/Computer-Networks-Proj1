@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kiendom</title>
+    <title>Authentication</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <meta http-equiv="refresh" content="0; URL=auth.html">
 </head>
 
 <body>
@@ -15,150 +13,45 @@
         <nav>
             <div class="logo">Kiendom</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#network">Networking</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
-            <div class="mobile-menu" id="mobile-menu">
-                <span>&#9776;</span>
-            </div>
         </nav>
     </header>
-    <!-- Body Section -->
-    <main id="home">
-        <section class="hero">
-            <h1>Welcome to Kiendom</h1>
-            <p>Explore the fundamentals of networking through an interactive and visually engaging experience.
-            </p>
-        </section>
 
-        <section id="about">
-            <h2>About This Project</h2>
-            <p>For my first Computer Networking project, I designed and developed a fully functional website to
-                illustrate key networking principles in action. This project required me to build a website from scratch
-                while ensuring it adhered to fundamental networking concepts.</p>
+    <section id="auth">
+        <h2 id="auth-title">Login</h2>
 
-            <h2>Project Tasks</h2>
-            <p>
-                <strong>Domain & Hosting:</strong> Selected a hosting service and configured a domain (either free or
-                temporary).<br>
-                <strong>Website Setup:</strong> Built a responsive website using HTML, CSS, and optionally JavaScript
-                or a framework of choice.<br>
-                <strong>Networking Aspects:</strong> Ensured the website was accessible online while demonstrating
-                knowledge of <strong>DNS, IP addressing, and protocols</strong>.<br>
-                <strong>Documentation:</strong> Provided a detailed report covering the website setup, challenges
-                faced, and how networking principles were applied.<br>
-                <strong>Bonus Enhancements:</strong> Implemented security features such as <strong>HTTPS, firewalls,
-                    and access control</strong> to enhance the site’s reliability and security.<br>
-            </p>
+        <!-- Login Form -->
+        <form id="login-form">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" required>
+            <button type="submit">Login</button>
+            <p id="login-message"></p>
+        </form>
 
-        </section>
+        <!-- Register Form -->
+        <form id="register-form" style="display: none;">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" required>
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" required>
+            <button type="submit">Register</button>
+            <p id="register-message"></p>
+        </form>
 
-        <section id="network">
-            <h2>Networking Concepts in Action</h2>
-            <ul>
-                <li>
-                    <strong>DNS:</strong> Translates human-readable domain names (e.g., example.com) into IP addresses,
-                    allowing devices to locate and communicate with web servers.
-                    <button class="dropdown-btn">Show Example</button>
-                    <div class="dropdown-content">
-                        <p><strong>Example:</strong> When you type <code>www.google.com</code> into your browser, DNS
-                            translates it into an IP address like <code>142.250.190.78</code>, allowing your browser to
-                            reach Google's server.</p>
-                    </div>
-                </li>
-                <li>
-                    <strong>IP Addresses:</strong> Unique numerical identifiers assigned to devices in a network,
-                    enabling communication between different systems over the internet or local networks.
-                    <button class="dropdown-btn">Show Example</button>
-                    <div class="dropdown-content">
-                        <p><strong>Example:</strong> Your home router typically has an IP address like
-                            <code>192.168.1.1</code> for internal networking, while Google's public DNS server has an IP
-                            like <code>8.8.8.8</code>.
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <strong>Protocols:</strong> Rules and standards that govern data exchange between devices on a
-                    network. Examples include HTTP/HTTPS for web communication, ensuring secure and structured data
-                    transfer.
-                    <button class="dropdown-btn">Show Example</button>
-                    <div class="dropdown-content">
-                        <p><strong>Example:</strong> When you visit <code>https://www.example.com</code>, your browser
-                            and the web server communicate using the HTTPS protocol to encrypt data and ensure security.
-                        </p>
-                    </div>
-                </li>
-            </ul>
-            <p>Enhanced security is built-in with HTTPS and careful configuration of access controls.</p>
-        </section>
+        <!-- Toggle Buttons -->
+        <div class="toggle-buttons">
+            <button id="show-login" class="active">Login</button>
+            <button id="show-register">Register</button>
+        </div>
+    </section>
 
-        <!-- Flashcard Game Section -->
-        <section id="flashcards">
-            <h2>Flashcard Game</h2>
-            <p>Test your networking knowledge with the flashcards below! Click on a card to reveal the answer.</p>
-            <button id="start-game">Start Game</button>
-            <button id="reset-game" style="display: none;">Reset Game</button>
-            <div class="flashcards-container" style="display: none;">
-                <div class="flashcard">
-                    <div class="question">What is DNS?</div>
-                    <div class="answer">Translates human-readable domain names (e.g., example.com) into IP addresses,
-                        allowing devices to locate and communicate with web servers.</div>
-                </div>
-                <div class="flashcard">
-                    <div class="question">What are IP Addresses?</div>
-                    <div class="answer">Unique numerical identifiers assigned to devices in a network,
-                        enabling communication between different systems over the internet or local networks.</div>
-                </div>
-                <div class="flashcard">
-                    <div class="question">What are Protocols?</div>
-                    <div class="answer">Rules and standards that govern data exchange between devices on a
-                        network. Examples include HTTP/HTTPS for web communication, ensuring secure and structured data
-                        transfer.
-                    </div>
-                </div>
-            </div>
-        </section>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
-
-        <!-- Documentation Section -->
-        <section id="documentation">
-            <h2>Project Documentation 📖</h2>
-            <p>This section provides a detailed overview of the website setup, challenges faced, and how networking
-                principles were applied.</p>
-
-            <ul>
-                <li><strong>Website Setup:</strong> Built using HTML, CSS, and JavaScript, ensuring a responsive and
-                    modern design.</li>
-                <li><strong>Domain & Hosting:</strong> Hosted on GitHub Pages, utilizing a free subdomain for public
-                    accessibility.</li>
-                <li><strong>Networking Concepts:</strong> Implemented core networking principles including
-                    <strong>DNS resolution, IP addressing, and HTTP/HTTPS protocols</strong>.
-                </li>
-                <li><strong>Security Enhancements:</strong> Leveraged GitHub Pages' built-in <strong>HTTPS</strong>
-                    support for secure communication.</li>
-                <li><strong>Challenges Faced:</strong> Adjusting website responsiveness, ensuring cross-browser
-                    compatibility, and debugging JavaScript for interactive elements.</li>
-                <li><strong>Interactive Features:</strong> Implemented a dynamic <strong>Flashcard Game</strong> to
-                    reinforce networking knowledge.</li>
-            </ul>
-        </section>
-
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact / Feedback</h2>
-            <p>Questions or suggestions? Email us at <a href="mailto:info@netflux.com">kienv@kiendom.com</a>.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Kiendom. All rights reserved.</p>
-    </footer>
-
-    <script src="firebase.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>

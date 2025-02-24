@@ -1,8 +1,8 @@
-// ✅ Import Firebase SDK
+// Import Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// ✅ Firebase Configuration
+// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCDwyiES7DPOkkxgS0b4IeFWjhn8lkhgJ4",
   authDomain: "computer-network1.firebaseapp.com",
@@ -12,11 +12,11 @@ const firebaseConfig = {
   appId: "1:867431642482:web:9dfbeb65bb72471e8119eb"
 };
 
-// ✅ Initialize Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ✅ Handle Register
+// Handle Register
 document.getElementById("register-form").addEventListener("submit", function (event) {
   event.preventDefault();
   
@@ -35,7 +35,7 @@ document.getElementById("register-form").addEventListener("submit", function (ev
     });
 });
 
-// ✅ Handle Login
+// Handle Login
 document.getElementById("login-form").addEventListener("submit", function (event) {
   event.preventDefault();
   
@@ -48,7 +48,7 @@ document.getElementById("login-form").addEventListener("submit", function (event
       loginMessage.innerText = "✅ Login Successful! Redirecting...";
       loginMessage.style.color = "green";
       setTimeout(() => {
-        window.location.href = "index.html"; // Redirect to home page
+        window.location.href = "main.html"; // Redirect to home page
       }, 1000);
     })
     .catch((error) => {
@@ -57,7 +57,7 @@ document.getElementById("login-form").addEventListener("submit", function (event
     });
 });
 
-// ✅ Toggle Login & Register Forms
+// Toggle Login & Register Forms
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ Script loaded successfully!");
 
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("❌ Error: One or more authentication elements are missing in the DOM.");
     }
 
-    // ✅ Mobile Menu Toggle
+    // Mobile Menu Toggle
     const mobileMenu = document.getElementById("mobile-menu");
     if (mobileMenu) {
         mobileMenu.addEventListener("click", function () {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("⚠ Warning: 'mobile-menu' not found in the DOM.");
     }
 
-    // ✅ Dropdown Functionality
+    // Dropdown Functionality
     document.querySelectorAll('.dropdown-btn').forEach(button => {
         button.addEventListener('click', function () {
             let content = this.nextElementSibling;
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Flashcard Game Logic
+    // Flashcard Game Logic
     const startGameButton = document.getElementById("start-game");
     const resetGameButton = document.getElementById("reset-game");
     const flashcardsContainer = document.querySelector(".flashcards-container");
