@@ -4,7 +4,6 @@
       { "src": "server.js", "use": "@vercel/node" }
     ],
     "routes": [
-      { "src": "/", "status": 301, "headers": { "Location": "/auth.html" } }
+      { "src": "/(.*)", "dest": "server.js" }
     ]
   }
-  
