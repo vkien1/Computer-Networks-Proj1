@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 console.log("📡 Sending registration request...");
-                const response = await fetch("http://localhost:3000/register", {
+                const response = await fetch("https://your-backend.vercel.app/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, password })
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 console.log("📡 Sending login request...");
-                const response = await fetch("http://localhost:3000/login", {
+                const response = await fetch("https://your-backend.vercel.app/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, password })

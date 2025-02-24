@@ -2,25 +2,24 @@ const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const bcrypt = require("bcryptjs");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
+const port = process.env.PORT || 3000; // Use dynamic port for Vercel
 const db = new sqlite3.Database("./users.db");
 
 app.use(express.json());
 app.use(cors()); // Allow frontend requests
 
-// ✅ Serve Static Files (Ensure `auth.html` and `index.html` are in `public/`)
-app.use(express.static(path.join(__dirname, "public")));
+// Serve Static Files
+app.use(express.static("public"));
 
-// ✅ Create users table if it doesn't exist
+// Create users table
 db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT UNIQUE, password TEXT)");
 
-// ✅ Register Endpoint
+// Register Endpoint
 app.post("/register", (req, res) => {
     const { email, password } = req.body;
 
-    // Hash password before storing
     bcrypt.hash(password, 10, (err, hash) => {
         if (err) return res.status(500).json({ message: "Error hashing password" });
 
@@ -31,7 +30,7 @@ app.post("/register", (req, res) => {
     });
 });
 
-// ✅ Login Endpoint
+// Login Endpoint
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
 
@@ -46,6 +45,7 @@ app.post("/login", (req, res) => {
     });
 });
 
-// ✅ Start Server
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// Start Server
+app.listen(port, () => console.log(`Server running on port ${port}`));
+
+module.exports = app; // Required for Vercel
