@@ -1,8 +1,8 @@
-// Import Firebase SDK
+//Import Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Firebase Configuration
+//Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCDwyiES7DPOkkxgS0b4IeFWjhn8lkhgJ4",
   authDomain: "computer-network1.firebaseapp.com",
@@ -12,12 +12,21 @@ const firebaseConfig = {
   appId: "1:867431642482:web:9dfbeb65bb72471e8119eb"
 };
 
-// Initialize Firebase
+//Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Handle Register
-document.getElementById("register-form").addEventListener("submit", function (event) {
+//Redirect Users if Not Logged In (For main.html)
+if (window.location.pathname.includes("main.html")) {
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            window.location.href = "index.html";
+        }
+    });
+}
+
+//Handle Registration
+document.getElementById("register-form")?.addEventListener("submit", function (event) {
   event.preventDefault();
   
   const email = document.getElementById("register-email").value;
@@ -35,8 +44,8 @@ document.getElementById("register-form").addEventListener("submit", function (ev
     });
 });
 
-// Handle Login
-document.getElementById("login-form").addEventListener("submit", function (event) {
+//Handle Login
+document.getElementById("login-form")?.addEventListener("submit", function (event) {
   event.preventDefault();
   
   const email = document.getElementById("login-email").value;
@@ -48,7 +57,7 @@ document.getElementById("login-form").addEventListener("submit", function (event
       loginMessage.innerText = "✅ Login Successful! Redirecting...";
       loginMessage.style.color = "green";
       setTimeout(() => {
-        window.location.href = "main.html"; // Redirect to home page
+        window.location.href = "main.html"; // 
       }, 1000);
     })
     .catch((error) => {
@@ -57,9 +66,16 @@ document.getElementById("login-form").addEventListener("submit", function (event
     });
 });
 
+// Handle Logout
+document.getElementById("logout-btn")?.addEventListener("click", function () {
+    signOut(auth).then(() => {
+        window.location.href = "index.html"; 
+    });
+});
+
 // Toggle Login & Register Forms
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ Script loaded successfully!");
+    console.log("Script loaded successfully!");
 
     const showLoginBtn = document.getElementById("show-login");
     const showRegisterBtn = document.getElementById("show-register");
@@ -68,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const authTitle = document.getElementById("auth-title");
 
     if (showLoginBtn && showRegisterBtn && loginForm && registerForm && authTitle) {
-        console.log("✅ Found all authentication elements.");
+        console.log("Found all authentication elements.");
 
         showLoginBtn.addEventListener("click", function () {
             console.log("🔄 Switching to Login form.");
@@ -88,9 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
             showLoginBtn.classList.remove("active");
         });
     } else {
-        console.error("❌ Error: One or more authentication elements are missing in the DOM.");
+        console.error("Error: One or more authentication elements are missing in the DOM.");
     }
-
     // Mobile Menu Toggle
     const mobileMenu = document.getElementById("mobile-menu");
     if (mobileMenu) {
