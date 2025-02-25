@@ -1,16 +1,8 @@
 //Import Firebase SDK
+import { firebaseConfig } from "./firebaseConfig.js"; 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-//Firebase Configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCDwyiES7DPOkkxgS0b4IeFWjhn8lkhgJ4",
-  authDomain: "computer-network1.firebaseapp.com",
-  projectId: "computer-network1",
-  storageBucket: "computer-network1.appspot.com",
-  messagingSenderId: "867431642482",
-  appId: "1:867431642482:web:9dfbeb65bb72471e8119eb"
-};
 
 //Initialize Firebase
 const app = initializeApp(firebaseConfig);
