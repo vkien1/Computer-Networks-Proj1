@@ -46,24 +46,34 @@ document.getElementById("register-form")?.addEventListener("submit", function (e
 
 //Handle Login
 document.getElementById("login-form")?.addEventListener("submit", function (event) {
-  event.preventDefault();
+    event.preventDefault();
   
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
-  const loginMessage = document.getElementById("login-message");
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+    const loginMessage = document.getElementById("login-message");
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      loginMessage.innerText = "✅ Login Successful! Redirecting...";
-      loginMessage.style.color = "green";
-      setTimeout(() => {
-        window.location.href = "main.html"; // 
-      }, 1000);
-    })
-    .catch((error) => {
-      loginMessage.innerText = "❌ " + error.message;
-      loginMessage.style.color = "red";
-    });
+    // Get reCAPTCHA response token
+    const recaptchaResponse = grecaptcha.getResponse();
+
+    if (!recaptchaResponse) {
+        loginMessage.innerText = "❌ Please complete the reCAPTCHA challenge.";
+        loginMessage.style.color = "red";
+        return;
+    }
+
+    // Proceed with Firebase Authentication
+    signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            loginMessage.innerText = "✅ Login Successful! Redirecting...";
+            loginMessage.style.color = "green";
+            setTimeout(() => {
+                window.location.href = "main.html";
+            }, 1000);
+        })
+        .catch((error) => {
+            loginMessage.innerText = "❌ " + error.message;
+            loginMessage.style.color = "red";
+        });
 });
 
 // Handle Logout
